@@ -54,7 +54,7 @@ const PostDetails = () => {
       ) : (
         <div className="post_details-card">
           <img
-            src={post?.imageUrl}
+            src={post?.imageUrl?.replace("/preview", "/view")}
             alt="creator"
             className="post_details-img"
           />

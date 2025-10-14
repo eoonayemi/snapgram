@@ -190,6 +190,8 @@ export function getFilePreview(fileId: string) {
 
     if (!fileUrl) throw Error;
 
+    console.log({ fileUrl });
+
     return fileUrl;
   } catch (error) {
     console.log(error);
@@ -429,7 +431,7 @@ export async function getUserPosts(userId?: string) {
 // ============================== GET POPULAR POSTS (BY HIGHEST LIKE COUNT)
 export async function getRecentPosts() {
   try {
-    const posts = await databases.listDocuments(
+    let posts = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.postCollectionId,
       [Query.orderDesc("$createdAt"), Query.limit(20)]

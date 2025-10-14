@@ -70,7 +70,10 @@ const PostCard = ({ post }: PostCardProps) => {
         </div>
 
         <img
-          src={post.imageUrl || "/assets/icons/profile-placeholder.svg"}
+          src={
+            post.imageUrl.replace("/preview", "/view") ||
+            "/assets/icons/profile-placeholder.svg"
+          }
           alt="post image"
           className="post-card_img"
         />
